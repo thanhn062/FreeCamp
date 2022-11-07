@@ -1,8 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1 style="text-align: center; margin-top: 20px">Projects</h1>
 
-<div id="projects">
+<div id="projects container" style="margin-top: 20px">
+  <div class="row">
+    <div class="col-sm all-project text-center">
+      <button style="width: 80%" type="button" class="btn btn-outline-secondary">All projects</button>
+    </div>
+    <div class="col-sm my-project text-center">
+      <button style="width: 80%" type="button" class="btn btn-outline-secondary">Created by me</button>
+    </div>
+    <div class="col-sm shared-project text-center">
+      <button style="width: 80%" type="button" class="btn btn-outline-secondary">Shared with me</button>
+    </div>
+  </div>
   <% @projects.each do |project| %>
     <%= render project %>
     <p>
