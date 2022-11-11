@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
           redirect_to :controller => :landing_page
       end
   end
+  
   # GET /projects or /projects.json
   def index
     @projects = Project.all
