@@ -1,30 +1,37 @@
-<div class="card" style="margin-top: 3%">
-  <div class="card-header">
-    <div class="form-title">Log In</div>
-  </div>
-  <div class="form-padding">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+<div class="text-center">
+    <%= image_tag("freecamp.jpg.webp", maxwidth: "100%", height: "200em", alt: "logo") %>
+</div>
+<div class="col-lg-6 offset-lg-3">
+  <div class="card" style="margin-top: 3%">
+    <div class="card-header">
+      <div class="form-title">Log In</div>
+    </div>
+    <div class="form-padding">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control">
+        </div>
 
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="actions text-center">
+          <button class="btn btn-primary" type="submit">Log in</button>
         </div>
       <% end %>
-
-      <div class="actions">
-        <button class="btn btn-primary" type="submit">Log in</button>
-      </div>
-    <% end %>
-    <%= render "devise/shared/links" %>
- </div>
+        <div class="text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+    </div>
+  </div>
 </div>
