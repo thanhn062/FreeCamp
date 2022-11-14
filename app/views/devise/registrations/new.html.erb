@@ -1,41 +1,73 @@
 
-<div class="card" style="margin-top: 3%">
-  <div class="card-header">
-    <div class="form-title">Sign up</div>
-  </div>
-  <div class="form-padding">
-    <%= turbo_frame_tag "post" do %>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-        <div class="mb-3">
-          <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-        </div>
+<div class="text-center">
+    <%= image_tag("freecamp.jpg.webp", maxwidth: "100%", height: "200em", alt: "logo") %>
+</div>
+<div class="col-lg-6 offset-lg-3">
+  <div class="card" style="margin-top: 3%">
+    <div class="card-header">
+      <div class="form-title">Sign up</div>
+    </div>
+    <div class="form-padding">
+      <%= turbo_frame_tag "post" do %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <% if resource.errors[:name].present?%>
+              <input autofocus="autofocus" autocomplete="name" type="name" value="" name="user[name]" id="user_name" class="form-control is-invalid">
+              <div id="nameHelper" class="form-text" style="color: red">
+                  <%= resource.errors[:name][0].to_s %>
+              </div>
+            <% else %>
+              <input autofocus="autofocus" autocomplete="name" type="name" value="" name="user[name]" id="user_name" class="form-control">
+            <% end %>
+          </div>
 
-        <div class="mb-3">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <% if resource.errors[:email].present?%>
+              <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control is-invalid">
+              <div id="emailHelper" class="form-text" style="color: red">
+                <%= resource.errors[:email][0].to_s %>
+              </div>
+            <% else %>
+              <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control">
+            <% end %>
+          </div>
 
-        <div class="mb-3">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <% if resource.errors[:password].present?%>
+              <input autofocus="autofocus" autocomplete="password" type="password" value="" name="user[password]" id="user_password" class="form-control is-invalid">
+              <div id="passwordHelper" class="form-text" style="color: red">
+                  <%= resource.errors[:password][0].to_s %>
+              </div>
+            <% else %>
+              <input autofocus="autofocus" autocomplete="password" type="password" value="" name="user[password]" id="user_password" class="form-control">
+              <div id="emailHelper" class="form-text">Must be atleast 6 characters long</div>
+            <% end %>
+          </div>
 
-        <div class="mb-3">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
+          <div class="mb-3">
+            <label class="form-label">Password confirmation</label>
+            <% if resource.errors[:password_confirmation].present?%>
+              <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control is-invalid">
+              <div id="passwordHelper" class="form-text" style="color: red">
+                  <%= resource.errors[:password_confirmation][0].to_s %>
+              </div>
+            <% else %>
+              <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control">
+            <% end %>
+          </div>
 
-        <div class="actions">
-          <button class="btn btn-primary" type="submit">Sign up</button>
-        </div>
-        <%= render "devise/shared/links" %>
+          <div class="actions text-center">
+            <button class="btn btn-primary" type="submit">Sign up</button>
+          </div>
+          <div class="text-center">
+            <%= render "devise/shared/links" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
 
