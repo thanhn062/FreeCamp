@@ -1,13 +1,13 @@
 
-<div id="<%= dom_id project %>" class="card card-block text-left">    
+<div id="<%= dom_id project %>" class="card card-block text-start">    
   <div class="card-header clearfix">
-    <p class="card-text">
+    <p class="card-text text-center">
       <a class="project-name"><%= project.name %></a>
-      <%= link_to "✎", edit_project_path(project), class: "btn btn-primary float-right" %>
+      <%= link_to "✎", edit_project_path(project), class: "btn btn-primary float-end" %>
     </p>
   </div>
   <div class="card-body">
     <%= project.description %>
-    <%= button_to "🗑", project, method: :delete, class: "btn btn-danger float-right" %>
+    <%= button_to "🗑", project, method: :delete, class: "btn btn-danger float-end" %>
   </div>
 </div>
