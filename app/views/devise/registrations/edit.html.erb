@@ -33,10 +33,15 @@
       <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
     </div>
 
+    <div class="form-check form-switch">
+      <label class="form-check-label" for="adminSwitch">Admin</label>
+      <input class="form-check-input" type="checkbox" id="adminSwitch">
+    </div>
     <div class="actions">
       <%= f.submit "Update", class: "btn btn-primary" %>
     </div>
   <% end %>
+
   <br>
   <h3>Delete my account</h3>
 
