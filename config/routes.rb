@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'landing_page/index'
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   resources :projects
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   #root to: redirect("/projects")
