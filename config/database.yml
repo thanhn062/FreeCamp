@@ -49,11 +49,10 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  url: <%= ENV['DATABASE_URL'] %>
-  database: sample_postgres_production
+  database: d7dt52qkmqvter
   pool: 5
-  username: sample_postgres
-  password:
+  username: fyysugzadjodpf
+  password: <%= ENV['DB_PASSWORD'] %>
 # # SQLite. Versions 3.8.0 and up are supported.
 # #   gem install sqlite3
 # #
