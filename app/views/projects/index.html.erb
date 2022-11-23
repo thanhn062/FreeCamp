@@ -5,11 +5,18 @@
     <div class="col-sm all-project text-center">
       <button style="width: 80%" type="button" class="btn btn-outline-secondary">✲ All projects</button>
       <% @projects.each do |project| %>
-        <%= render project %>
+        <% if project.author != current_user.email%>
+          <%= render project %>
+        <% end %>
       <% end %>
     </div>
     <div class="col-sm my-project text-center">
       <button style="width: 80%" type="button" class="btn btn-outline-secondary">🖊 Created by me</button>
+      <% @projects.each do |project| %>
+        <% if project.author == current_user.email%>
+          <%= render project %>
+        <% end %>
+      <% end %>
     </div>
     <div class="col-sm shared-project text-center">
       <button style="width: 80%" type="button" class="btn btn-outline-secondary">👥 Shared with me</button>
