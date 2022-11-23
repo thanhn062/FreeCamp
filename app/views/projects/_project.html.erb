@@ -3,11 +3,16 @@
   <div class="card-header clearfix">
     <p class="card-text text-center">
       <a class="project-name"><%= project.name %></a>
-      <%= link_to "✎", edit_project_path(project), class: "btn btn-primary float-end" %>
+      <% if current_user.email == project.author %>
+        <%= link_to "✎", edit_project_path(project), class: "btn btn-primary float-end" %>
+      <% end %>
     </p>
   </div>
+  <h6 class="card-subtitle  text-muted float-end" style="padding: 10px 0 0 10px">author: <%= project.author %></h6>
   <div class="card-body">
     <%= project.description %>
-    <%= button_to "🗑", project, method: :delete, class: "btn btn-danger float-end" %>
+    <% if current_user.email == project.author %>
+      <%= button_to "🗑", project, method: :delete, class: "btn btn-danger float-end" %>
+    <% end %>
   </div>
 </div>
