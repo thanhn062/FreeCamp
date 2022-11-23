@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+  <div style="display: none">
+    <%= form.text_field :author, class: "form-control", value: current_user.email %>
+  </div>
+
   <div>
     <%= form.label :name, class: "form-label", style: "display: block" %>
     <%= form.text_field :name, class: "form-control" %>
