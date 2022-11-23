@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_07_025221) do
   create_table "projects", force: :cascade do |t|
+    t.string "author", null: false
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
